@@ -18,7 +18,8 @@
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "vercel-build": "npm install --legacy-peer-deps && npm run build"
+    "vercel-build": "npm install --legacy-peer-deps && npm run build",
+    "postinstall": "npm install --legacy-peer-deps"
   },
   "browserslist": {
     "production": [
