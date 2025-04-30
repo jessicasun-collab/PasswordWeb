@@ -1,0 +1,15 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# local env files
+.env
+
+# build output
+build/
+dist/
+
+# Mac 系統檔
+.DS_Store

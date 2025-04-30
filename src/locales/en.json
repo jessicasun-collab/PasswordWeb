@@ -1,0 +1,20 @@
+{
+    "app_title": "Password Manager",
+    "select_file": "Select File",
+    "choose_file": "Choose File",
+    "not_selected": "No file selected",
+    "master_password": "Master Password",
+    "login": "Login",
+    "logout": "Logout",
+    "file_or_password_error": "File or password error: ",
+    "file_and_password_required": "Please select a file and enter the master password",
+    "file": "File",
+    "total_count": "Total {{count}} items",
+    "search_placeholder": "Search (system, username, website, remark)",
+    "no_data": "No data",
+    "username": "Username",
+    "password": "Password",
+    "website": "Website",
+    "remark": "Remark",
+    "copied": "Copied"
+  }

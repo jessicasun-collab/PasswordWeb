@@ -1,0 +1,20 @@
+{
+  "app_title": "密碼管理器",
+  "select_file": "選擇資料檔",
+  "choose_file": "選擇檔案",
+  "not_selected": "未選擇檔案",
+  "master_password": "主密碼",
+  "login": "登入",
+  "logout": "登出",
+  "file_or_password_error": "檔案或密碼錯誤：",
+  "file_and_password_required": "請選擇資料檔並輸入主密碼",
+  "file": "資料檔",
+  "total_count": "共 {{count}} 筆",
+  "search_placeholder": "搜尋（系統、帳號、網站、備註）",
+  "no_data": "沒有資料",
+  "username": "用戶名稱",
+  "password": "密碼",
+  "website": "網站",
+  "remark": "備註",
+  "copied": "已複製"
+}
