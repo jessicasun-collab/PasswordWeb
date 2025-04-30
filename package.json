@@ -13,13 +13,14 @@
     "react-i18next": "^15.5.1",
     "react-scripts": "^5.0.1"
   },
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
+  },
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "vercel-build": "npm install --legacy-peer-deps && npm run build",
-    "postinstall": "npm install --legacy-peer-deps"
+    "build": "react-scripts build"
   },
   "browserslist": {
     "production": [
@@ -32,8 +33,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "gh-pages": "^6.3.0"
   }
 }
