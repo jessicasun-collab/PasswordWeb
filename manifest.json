@@ -1,0 +1,12 @@
+{
+  "short_name": "PwdMgr",
+  "name": "密碼管理器 (PWA)",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#e5e9f2",
+  "theme_color": "#007aff"
+}

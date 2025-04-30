@@ -1,0 +1,10 @@
+{
+  "files": {
+    "main.js": "/PasswordWeb/static/js/main.918fd473.js",
+    "index.html": "/PasswordWeb/index.html",
+    "main.918fd473.js.map": "/PasswordWeb/static/js/main.918fd473.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.918fd473.js"
+  ]
+}

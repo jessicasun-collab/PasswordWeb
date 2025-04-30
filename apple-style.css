@@ -1,0 +1,103 @@
+body {
+    background: #f7f7fa !important;
+    font-family: "San Francisco", "PingFang TC", "Helvetica Neue", Arial, sans-serif !important;
+  }
+  
+  div, input, button {
+    border-radius: 14px !important;
+  }
+  
+  button, input[type="button"], input[type="submit"] {
+    background: linear-gradient(180deg, #4facfe 0%, #007aff 100%) !important;
+    color: #fff !important;
+    border: none !important;
+    font-weight: 600 !important;
+    box-shadow: 0 4px 16px #007aff44, 0 1.5px 0 #005ecb inset !important;
+    transition: background 0.2s, box-shadow 0.2s !important;
+    font-size: 14px !important;
+    padding: 13px 0 !important;
+  }
+  
+  button:active, button:focus,
+  input[type="button"]:active, input[type="button"]:focus,
+  input[type="submit"]:active, input[type="submit"]:focus {
+    background: linear-gradient(180deg, #007aff 0%, #005ecb 100%) !important;
+    box-shadow: 0 2px 8px #007aff33, 0 1.5px 0 #005ecb inset !important;
+  }
+  
+  input, textarea {
+    background: #fff !important;
+    border: 1.5px solid #e0e0e6 !important;
+    font-size: 17px !important;
+    color: #222 !important;
+    padding: 14px 16px !important;
+    box-shadow: none !important;
+  }
+  
+  input:focus, textarea:focus {
+    border-color: #007aff !important;
+    outline: none !important;
+  }
+  
+  h1, h2, h3, h4, h5 {
+    font-weight: 700 !important;
+    letter-spacing: 1px !important;
+    color: #222 !important;
+  }
+  
+  label {
+    font-weight: 600 !important;
+    font-size: 18px !important;
+    color: #222 !important;
+    margin-bottom: 8px !important;
+    display: block !important;
+  }
+  
+  ::-webkit-input-placeholder { color: #bbb !important; }
+  ::-moz-placeholder { color: #bbb !important; }
+  :-ms-input-placeholder { color: #bbb !important; }
+  ::placeholder { color: #bbb !important; }
+  
+  .card, .apple-card {
+    background: #fff !important;
+    border-radius: 18px !important;
+    box-shadow: 0 4px 24px #0001 !important;
+    padding: 36px 24px !important;
+  }
+  
+  .apple-list-item {
+    background: #f9fafb !important;
+    border: 1px solid #e0e0e6 !important;
+    margin-bottom: 14px !important;
+    padding: 18px 16px !important;
+    box-shadow: 0 1px 4px #0001 !important;
+    transition: background 0.2s !important;
+    cursor: pointer !important;
+  }
+  
+  .apple-list-item:hover {
+    background: #eaf3ff !important;
+    border-color: #b3d4fc !important;
+  }
+  
+  .text-muted {
+    color: #888 !important;
+  }
+  
+  .text-success {
+    color: #34c759 !important;
+  }
+  
+  .text-danger {
+    color: #d00 !important;
+  }
+  
+  @media (max-width: 500px) {
+    .card, .apple-card {
+      padding: 18px 4vw !important;
+    }
+    button, input, textarea {
+      font-size: 16px !important;
+      padding: 10px 0 !important;
+    }
+  }
