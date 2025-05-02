@@ -11,28 +11,33 @@ createApp({
       showAdd: false,
       showEdit: false,
       editIdx: null,
-      editItem: { system:"", username:"", website:"", password:"", remark:"" }
-    }
+      editItem: { system: "", username: "", website: "", password: "", remark: "" },
+      showPassword: false // 控制密碼顯示狀態
+    };
   },
   computed: {
     filtered() {
       const k = this.search.trim().toLowerCase();
       if (!k) return this.data;
       return this.data.filter(item =>
-        (item.system||"").toLowerCase().includes(k) ||
-        (item.username||"").toLowerCase().includes(k) ||
-        (item.website||"").toLowerCase().includes(k) ||
-        (item.remark||"").toLowerCase().includes(k)
+        (item.system || "").toLowerCase().includes(k) ||
+        (item.username || "").toLowerCase().includes(k) ||
+        (item.website || "").toLowerCase().includes(k) ||
+        (item.remark || "").toLowerCase().includes(k)
       );
     }
   },
   methods: {
+    togglePasswordVisibility() {
+      this.showPassword = !this.showPassword;
+    },
     async login() {
       this.error = "";
       if (!this.password) return;
       let r = await fetch("/api/check", {
-        method:"POST", headers:{"Content-Type":"application/json"},
-        body: JSON.stringify({password:this.password})
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ password: this.password })
       });
       let d = await r.json();
       if (d.ok) {
@@ -44,8 +49,9 @@ createApp({
     },
     async load() {
       let r = await fetch("/api/load", {
-        method:"POST", headers:{"Content-Type":"application/json"},
-        body: JSON.stringify({password:this.password})
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ password: this.password })
       });
       let d = await r.json();
       if (d.ok) this.data = d.data;
@@ -53,8 +59,9 @@ createApp({
     },
     async saveAll() {
       let r = await fetch("/api/save", {
-        method:"POST", headers:{"Content-Type":"application/json"},
-        body: JSON.stringify({password:this.password, data:this.data})
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ password: this.password, data: this.data })
       });
       let d = await r.json();
       if (d.ok) alert("儲存完成！");
@@ -67,14 +74,14 @@ createApp({
     showModal(item, idx) {
       this.showEdit = true;
       this.editIdx = idx;
-      this.editItem = {...item};
+      this.editItem = { ...item };
     },
     edit(idx) {
       this.showModal(this.data[idx], idx);
     },
     update() {
-      if(this.editIdx==null) return;
-      this.data[this.editIdx] = {...this.editItem};
+      if (this.editIdx == null) return;
+      this.data[this.editIdx] = { ...this.editItem };
       this.showEdit = false;
       this.saveAll();
     },
@@ -84,14 +91,15 @@ createApp({
       this.saveAll();
     },
     add() {
-      this.data.push({...this.editItem});
+      this.data.push({ ...this.editItem });
       this.showAdd = false;
       this.saveAll();
     },
     closeModal() {
-      this.showEdit = false; this.showAdd = false;
+      this.showEdit = false;
+      this.showAdd = false;
       this.editIdx = null;
-      this.editItem = { system:"", username:"", website:"", password:"", remark:"" };
+      this.editItem = { system: "", username: "", website: "", password: "", remark: "" };
     },
     logout() {
       this.password = "";
@@ -99,7 +107,7 @@ createApp({
       this.data = [];
     },
     exportData() {
-      const blob = new Blob([JSON.stringify(this.data, null, 2)], {type:"application/json"});
+      const blob = new Blob([JSON.stringify(this.data, null, 2)], { type: "application/json" });
       const a = document.createElement("a");
       a.href = URL.createObjectURL(blob);
       a.download = "passwords.json";
