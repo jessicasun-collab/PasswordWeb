@@ -7,6 +7,7 @@ function Login({ onLogin }) {
   const [file, setFile] = useState(null);
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [showPassword, setShowPassword] = useState(false); // 控制密碼顯示狀態
   const fileInputRef = useRef();
 
   const handleFileChange = (e) => {
@@ -43,14 +44,17 @@ function Login({ onLogin }) {
         justifyContent: "center",
       }}
     >
-      <div className="card" style={{
-        background: "#fff",
-        borderRadius: 18,
-        boxShadow: "0 4px 24px #0001",
-        padding: "40px 32px",
-        width: 350,
-        maxWidth: "90vw",
-      }}>
+      <div
+        className="card"
+        style={{
+          background: "#fff",
+          borderRadius: 18,
+          boxShadow: "0 4px 24px #0001",
+          padding: "40px 32px",
+          width: 350,
+          maxWidth: "90vw",
+        }}
+      >
         {/* 語言切換選單 */}
         <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: 10 }}>
           <select
@@ -62,7 +66,7 @@ function Login({ onLogin }) {
               fontSize: 15,
               border: "1px solid #e0e0e6",
               background: "#f7f7fa",
-              cursor: "pointer"
+              cursor: "pointer",
             }}
           >
             <option value="zh">中文</option>
@@ -111,6 +115,7 @@ function Login({ onLogin }) {
               type="file"
               style={{ display: "none" }}
               onChange={handleFileChange}
+              accept=".enc" // 只接受 .enc 文件
             />
           </div>
         </div>
@@ -118,27 +123,47 @@ function Login({ onLogin }) {
           <label style={{ fontWeight: 500, fontSize: 18, marginBottom: 8, display: "block" }}>
             {t("master_password")}
           </label>
-          <input
-            type="password"
-            className="form-control"
-            style={{
-              width: "100%",
-              border: "1px solid #e0e0e6",
-              borderRadius: 8,
-              padding: "12px 14px",
-              fontSize: 17,
-              background: "#f7f7fa",
-              outline: "none",
-              marginTop: 2,
-              marginBottom: 0,
-              boxSizing: "border-box",
-            }}
-            value={password}
-            onChange={e => setPassword(e.target.value)}
-          />
+          <div style={{ display: "flex", alignItems: "center", position: "relative" }}>
+            <input
+              type={showPassword ? "text" : "password"}
+              className="form-control"
+              style={{
+                width: "100%",
+                border: "1px solid #e0e0e6",
+                borderRadius: 8,
+                padding: "12px 14px",
+                fontSize: 17,
+                background: "#f7f7fa",
+                outline: "none",
+                marginTop: 2,
+                marginBottom: 0,
+                boxSizing: "border-box",
+              }}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              autoComplete="new-password" // 禁用自動填充
+            />
+            <span
+              onClick={() => setShowPassword(!showPassword)}
+              style={{
+                position: "absolute",
+                right: 40, // 向左移動，避免與 macOS 鑰匙圖示重疊
+                top: "50%",
+                transform: "translateY(-50%)",
+                cursor: "pointer",
+                fontSize: 18,
+                color: "#888",
+              }}
+            >
+              {showPassword ? "🙈" : "👁️"}
+            </span>
+          </div>
         </div>
         {error && (
-          <div className="text-danger" style={{ marginBottom: 18, textAlign: "center", fontSize: 15 }}>
+          <div
+            className="text-danger"
+            style={{ marginBottom: 18, textAlign: "center", fontSize: 15 }}
+          >
             {error}
           </div>
         )}
