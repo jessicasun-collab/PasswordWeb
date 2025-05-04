@@ -31,7 +31,10 @@ function Login({ onLogin }) {
   };
 
   const handleLanguageChange = (e) => {
-    i18n.changeLanguage(e.target.value);
+    const selectedLanguage = e.target.value;
+    // 反轉語言：選擇中文時切換到英文，選擇英文時切換到中文
+    const newLanguage = selectedLanguage === "zh" ? "en" : "zh";
+    i18n.changeLanguage(newLanguage);
   };
 
   return (
@@ -54,24 +57,24 @@ function Login({ onLogin }) {
           width: 350,
           maxWidth: "90vw",
         }}
-      >
-        {/* 語言切換選單 */}
+        
+        >{/* 語言切換文字 */}
         <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: 10 }}>
-          <select
-            value={i18n.language}
-            onChange={handleLanguageChange}
+          <span
+            onClick={() => {
+              const newLanguage = i18n.language === "zh" ? "en" : "zh";
+              i18n.changeLanguage(newLanguage);
+            }}
             style={{
-              borderRadius: 8,
-              padding: "4px 10px",
-              fontSize: 15,
-              border: "1px solid #e0e0e6",
-              background: "#f7f7fa",
+              color: "#007aff",
+              fontSize: 16,
+              fontWeight: 500,
               cursor: "pointer",
+              transition: "color 0.2s",
             }}
           >
-            <option value="zh">中文</option>
-            <option value="en">English</option>
-          </select>
+            {i18n.language === "zh" ? "English" : "中文"}
+          </span>
         </div>
         <h2
           style={{
